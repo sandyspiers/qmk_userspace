@@ -10,6 +10,11 @@
 // triggering the hold.  Set to 0 to disable fast re-triggering.
 #define QUICK_TAP_TERM 120
 
+// Activate the hold action when another key is fully pressed AND released while
+// this key is held.  Prevents false modifier triggers when rolling keys quickly
+// (e.g. typing "sd" fast no longer fires Alt+D).
+#define PERMISSIVE_HOLD
+
 // ── One-shot mods ─────────────────────────────────────────────────────────────
 // How long a one-shot modifier stays active after being tapped (ms).
 #define ONESHOT_TIMEOUT 3000
