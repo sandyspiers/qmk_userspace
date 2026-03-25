@@ -38,8 +38,8 @@ KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  /*XX*/  /*XX*/    MS_WHL
 
 // Media
 [3] = LAYOUT_split_3x6_3_ex2(
-KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    RGB_TOG,  RGB_MOD,   RGB_VAI,  KC_NO,
-KC_NO,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_VOLD,  KC_VOLU,  RGB_RMOD,  RGB_VAD,  KC_NO,
+KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,    RM_TOGG,  RM_NEXT,   RM_VALU,  KC_NO,
+KC_NO,  KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_VOLD,  KC_VOLU,  RM_PREV,   RM_VALD,  KC_NO,
 KC_NO,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  /*XX*/  /*XX*/    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,    KC_NO,
 /*XX*/  /*XX*/    /*XX*/    /*XX*/    KC_NO,    KC_NO,  KC_NO,  KC_MPLY,  KC_MRWD,  KC_MFFD   /*XX*/    /*XX*/     /*XX*/    /*XX*/
 ),
