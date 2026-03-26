@@ -59,11 +59,6 @@ tap_dance_action_t tap_dance_actions[] = {
 #define HM_D    LCTL_T(KC_D)
 #define HM_F    LSFT_T(KC_F)
 
-// NUM layer – arithmetic on home row, same mod holds as BASE (GACS order)
-#define NM_A    LGUI_T(KC_PLUS)
-#define NM_S    LALT_T(KC_MINS)
-#define NM_D    LCTL_T(KC_ASTR)
-#define NM_F    LSFT_T(KC_SLSH)
 
 // Home row mods – right hand (SCAG order, inner to outer)
 #define HM_J    RSFT_T(KC_J)
@@ -140,20 +135,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NAV] = LAYOUT_split_3x6_3_ex2(
     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,  KC_NO,   KC_NO,   KC_CUT,  KC_COPY, KC_PSTE, KC_HOME, KC_PGUP,
     TO(BASE), KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, TG(NAV), KC_NO, KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_END,  KC_PGDN,
-    KC_NO,    AT_TAB,  CT_TAB,  KC_NO,   KC_NO,   KC_NO,                    KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_WH_D, KC_WH_U,
-                                LT_MISC, LT_SYM, KC_TRNS,  KC_BTN1, KC_BTN2, KC_BTN3
+    KC_NO,    AT_TAB,  CT_TAB,  KC_NO,   KC_NO,   KC_NO,                    MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, MS_WHLD, MS_WHLU,
+                                LT_MISC, LT_SYM, KC_TRNS,  MS_BTN1, MS_BTN2, MS_BTN3
 ),
 
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │  NUM – Numpad on right, arithmetic on left home row  (activate: hold ENT)   │
 // │                                                                              │
 // │  Right:   7 8 9 / 4 5 6 / 1 2 3 / 0 .  (standard numpad layout)            │
-// │  Left home row: tap=+/-/*/÷  hold=GUI/Alt/Ctrl/Shift  (GACS, same as BASE) │
+// │  Left home row: + - * /                                                      │
 // │  [G] = TG(NUM) — tap to lock/unlock this layer                              │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [NUM] = LAYOUT_split_3x6_3_ex2(
     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO,  KC_7,   KC_8,   KC_9,    KC_NO,   KC_NO,
-    TO(BASE), NM_A,    NM_S,    NM_D,    NM_F,    TG(NUM), KC_NO,  KC_NO,   KC_NO,  KC_4,   KC_5,   KC_6,    KC_0,    KC_NO,
+    TO(BASE), KC_PLUS, KC_MINS, KC_ASTR, KC_SLSH, TG(NUM), KC_NO,  KC_NO,   KC_NO,  KC_4,   KC_5,   KC_6,    KC_0,    KC_NO,
     KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_EQL,  KC_NO,                     KC_NO,  KC_1,   KC_2,   KC_3,    KC_DOT,  KC_NO,
                               LT_MISC, LT_SYM, LT_NAV,   KC_TRNS, TD_SFT, KC_BSPC
 ),
@@ -166,13 +161,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │    [J][K] = ( )   [L][;] = < >                                             │
 // │    [M][,] = - _   [.][/] = \ /                                             │
 // │  Left hand top row:  & * ~                                                  │
-// │  Left hand home row: ^ % $ `                                                │
+// │  Left hand home row: ` ^ % $                                                │
 // │  Left hand bottom:   ! @ #   G = TG(SYM) to lock layer.                    │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [SYM] = LAYOUT_split_3x6_3_ex2(
-    KC_NO,    KC_AMPR, KC_ASTR, KC_TILD, KC_NO,   KC_NO,    KC_NO,  KC_NO,   KC_NO,   KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_NO,
-    TO(BASE), KC_CIRC, KC_PERC, KC_DLR,  KC_GRV,  TG(SYM),  KC_NO,  KC_NO,   KC_NO,   KC_LPRN, KC_RPRN, KC_LABK, KC_RABK, KC_NO,
-    KC_NO,    KC_EXLM, KC_AT,   KC_HASH, KC_NO,   KC_NO,                      KC_NO,   KC_MINS, KC_UNDS, KC_BSLS, KC_SLSH, KC_NO,
+    KC_NO,    KC_NO,   KC_AMPR, KC_ASTR, KC_TILD, KC_NO,    KC_NO,  KC_NO,   KC_NO,   KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_NO,
+    TO(BASE), KC_GRV,  KC_CIRC, KC_PERC, KC_DLR,  TG(SYM),  KC_NO,  KC_NO,   KC_NO,   KC_LPRN, KC_RPRN, KC_LABK, KC_RABK, KC_NO,
+    KC_NO,    KC_NO,   KC_EXLM, KC_AT,   KC_HASH, KC_NO,                      KC_NO,   KC_MINS, KC_UNDS, KC_BSLS, KC_SLSH, KC_NO,
                               LT_MISC, KC_TRNS, LT_NAV,   LT_NUM, TD_SFT, KC_BSPC
 ),
 
