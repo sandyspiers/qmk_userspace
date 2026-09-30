@@ -1,0 +1,6 @@
+CONVERT_TO         = rp2040_ce
+OLED_ENABLE        = no
+TAP_DANCE_ENABLE   = yes
+CAPS_WORD_ENABLE   = yes
+ENCODER_MAP_ENABLE = yes
+MOUSEKEY_ENABLE    = yes
