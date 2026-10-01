@@ -24,6 +24,7 @@ enum custom_keycodes {
     FL_TAIL,
     FL_SHEL,
     FL_KEYS,
+    FL_PROJ,
 };
 
 // ============================================================
@@ -127,11 +128,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │                                                                              │
 // │  Number row: F-keys under their digits (F11 / F12 on the outer columns)      │
 // │  Letters   : floating tmux tools on their initial letter                     │
-// │              t fzf-tail  y yazi  s shell  g lazygit  k keys  b btop          │
+// │              t tail  y yazi  p project  s shell  g git  k keys  b btop       │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [FN] = LAYOUT(
     KC_F11,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F12,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, FL_TAIL,                     FL_YAZI, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, FL_TAIL,                     FL_YAZI, XXXXXXX, XXXXXXX, XXXXXXX, FL_PROJ, XXXXXXX,
     XXXXXXX, XXXXXXX, FL_SHEL, XXXXXXX, XXXXXXX, FL_LGIT,                     XXXXXXX, XXXXXXX, FL_KEYS, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, FL_BTOP, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
@@ -189,6 +190,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case FL_TAIL: SEND_STRING(SS_LALT("f") "t"); return false;
         case FL_SHEL: SEND_STRING(SS_LALT("f") "s"); return false;
         case FL_KEYS: SEND_STRING(SS_LALT("f") "k"); return false;
+        case FL_PROJ: SEND_STRING(SS_LALT("f") "p"); return false;
     }
     return true;
 }

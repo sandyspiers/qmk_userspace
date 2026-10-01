@@ -45,13 +45,13 @@
 
 ```
  F11  F1   F2   F3   F4   F5   │    F6   F7   F8   F9   F10  F12
- ·    ·    ·    ·    ·    tail │    yazi ·    ·    ·    ·    ·
+ ·    ·    ·    ·    ·    tail │    yazi ·    ·    ·    proj ·
  ·    ·    sh   ·    ·    git  │    ·    ·    keys ·    ·    ·
  ·    ·    ·    ·    ·    btop◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
-- Tools send tmux `M-f` + letter: `t` fzf-tail, `y` yazi, `s` shell,
-  `g` lazygit, `k` this cheat sheet, `b` btop
+- Tools send tmux `M-f` + letter: `t` fzf-tail, `y` yazi, `p` project
+  picker, `s` shell, `g` lazygit, `k` this cheat sheet, `b` btop
 
 ## MACRO · mnemonic keys
 
