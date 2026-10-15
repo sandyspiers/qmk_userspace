@@ -9,14 +9,14 @@
  `    1    2    3    4    5    │    6    7    8    9    0    -
  Tab  q    w    e    r    t    │    y    u    i    o    p    =
  ⎋/NV a    s    d    f    g    │    h    j    k    l    ;    '
-          Alt  Ctl                        Ctl  Alt
+               Alt  Ctl                 Ctl  Alt
  Ctl* z    x    c    v    b   ◉│◉   n    m    ,    .    /    \
       GUI  SYM* MAC* Sft* ␣/SY │    Ent  Bspc FN*  Del  ·
 ```
 
-- Home row mods: hold `s` Alt, `d` Ctrl, `k` Ctrl, `l` Alt
-- Hold the mod on the hand opposite the letter (Chordal Hold): `k`+`c`
-  is Ctrl+C, `s`+`f` is tmux `M-f`; same-hand rolls stay letters
+- Home row mods: hold `d` Alt, `f` Ctrl, `j` Ctrl, `k` Alt
+- Hold the mod on the hand opposite the letter (Chordal Hold): `j`+`c`
+  is Ctrl+C, `k`+`f` is tmux `M-f`; same-hand rolls stay letters
 - `⎋/NV` tap Esc, hold NAV. `␣/SY` tap Space, hold SYM
 - Typing fast makes tap-holds tap (Flow Tap: 150 ms, 100 ms for Space)
 - `SYM*` one-shot for a single symbol mid-word, no timing involved
@@ -41,12 +41,12 @@
 ```
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  ·    ·    ·    ·    ·    ·    │    Home PgDn PgUp End  ·    ·
- NAV  ·    Alt  Ctl  Sft  ·    │    ←    ↓    ↑    →    ·    ·
+ NAV  ·    Sft  Alt  Ctl  ·    │    ←    ↓    ↑    →    ·    ·
  ·    ·    ·    ·    ·    ·   ◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
-- Left home row is plain Alt / Ctrl / Shift while holding NAV:
-  `f` + arrow selects, `d` + arrow jumps a word, both for word select
+- Left home row is plain Shift / Alt / Ctrl while holding NAV:
+  `s` + arrow selects, `f` + arrow jumps a word, both for word select
 
 ## FN · F-keys and floating tools
 

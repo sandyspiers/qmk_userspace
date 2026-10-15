@@ -47,11 +47,11 @@ tap_dance_action_t tap_dance_actions[] = {
 #define ESC_NAV LT(NAV, KC_ESC)
 #define SPC_SYM LT(SYM, KC_SPC)
 
-// Home row mods: Alt on ring, Ctrl on middle, mirrored on both hands
-#define HM_S    LALT_T(KC_S)
-#define HM_D    LCTL_T(KC_D)
-#define HM_K    LCTL_T(KC_K)
-#define HM_L    LALT_T(KC_L)
+// Home row mods: Alt on middle, Ctrl on index, mirrored on both hands
+#define HM_D    LALT_T(KC_D)
+#define HM_F    LCTL_T(KC_F)
+#define HM_J    LCTL_T(KC_J)
+#define HM_K    LALT_T(KC_K)
 
 // One-shot mods and layers: tap for the next key, hold for several
 #define OS_CTL  OSM(MOD_LCTL)
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │  BASE – QWERTY; Ctrl / Alt as home row mods, Shift and layers on thumbs      │
 // │                                                                              │
-// │  Home row   : s Alt  d Ctrl  │  k Ctrl  l Alt   (use the opposite hand)       │
+// │  Home row   : d Alt  f Ctrl  │  j Ctrl  k Alt   (use the opposite hand)       │
 // │  Left thumb : GUI  SYM*  MACRO*  Shift*  Space/SYM                           │
 // │  Right thumb: Enter  Bspc  FN*  Del  –                                       │
 // │  Corners    : Ctrl* fallback (left), \ (right)                               │
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
-    ESC_NAV, KC_A,    HM_S,    HM_D,    KC_F,    KC_G,                        KC_H,    KC_J,    HM_K,    HM_L,    KC_SCLN, KC_QUOT,
+    ESC_NAV, KC_A,    KC_S,    HM_D,    HM_F,    KC_G,                        KC_H,    HM_J,    HM_K,    KC_L,    KC_SCLN, KC_QUOT,
     OS_CTL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ENC_L,     ENC_R,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
                       KC_LGUI, OS_SYM,  OS_MAC,  OS_SFT,  SPC_SYM,   KC_ENT,  KC_BSPC, OS_FN,   KC_DEL,  XXXXXXX
 ),
@@ -121,12 +121,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │                                                                              │
 // │  Top : Home PgDn PgUp End                                                    │
 // │  Home: ←    ↓    ↑    →                                                      │
-// │  Left home row holds plain Alt / Ctrl / Shift: select, jump words.           │
+// │  Left home row: s Shift  d Alt  f Ctrl (plain): select, jump words.          │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [NAV] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, KC_LSFT, KC_LALT, KC_LCTL, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
 ),
