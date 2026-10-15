@@ -9,26 +9,27 @@
  `    1    2    3    4    5    │    6    7    8    9    0    -
  Tab  q    w    e    r    t    │    y    u    i    o    p    =
  ⎋NAV a    s    d    f    g    │    h    j    k    l    ;    '
- Alt* z    x    c    v    b   ◉│◉   n    m    ,    .    /    SYM*
-      GUI  MAC* Ctl* Sft* Spc  │    Ent  Bspc Ctl* Del  FN*
+ Ctl* z    x    c    v    b   ◉│◉   n    m    ,    .    /    Ctl*
+      GUI  MAC* Alt* Sft* Spc  │    Ent  Bspc SYM* Del  FN*
 ```
 
 - `⎋NAV` tap Esc, hold NAV (permissive hold; the only tap-hold key)
 - `Alt*` then a letter sends tmux `M-` keys
-- `Ctl*` on both thumbs: use the one opposite the letter
+- `Ctl*` in both bottom corners: use the one opposite the letter
+- Symbols on the number row come from `Sft*` + digit
 
 ## SYM · mirrored pairs
 
 ```
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
- ·    !    @    #    $    %    │    ^    &    *    ~    `    ·
+ ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  ·    \    {    [    (    <    │    >    )    ]    }    |    ·
- ·    ·    _    -    =    +   ◉│◉   ·    ·    ·    ·    ·    SYM
+ ·    ·    _    -    =    +   ◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
-- Same bracket per finger on both hands; top row is shifted digits
-- `_ - = +` stay reachable while holding SYM
-- Tap SYM first for `|` `}` `~` `` ` `` (unreachable while holding)
+- Same bracket per finger on both hands
+- Shifted digits are not duplicated here: use `Sft*` + number row
+- SYM is on a thumb, so every key is reachable while holding it
 
 ## NAV · column = direction, row = distance
 
@@ -73,8 +74,8 @@
 
 | Encoder | Turn (cw / ccw)  | Press                         |
 |---------|------------------|-------------------------------|
-| Left    | Volume up / down | 1 tap play/pause, 2 taps next |
-| Right   | Scroll down / up | `Win+Alt+K` mic mute          |
+| Left    | Scroll down / up | `Win+Alt+K` mic mute          |
+| Right   | Volume up / down | 1 tap play/pause, 2 taps next |
 
 ## Build and flash
 

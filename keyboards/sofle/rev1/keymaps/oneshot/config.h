@@ -2,7 +2,7 @@
 #pragma once
 
 // ── Timing ────────────────────────────────────────────────────────────────────
-// Only Esc/NAV and the left encoder tap dance depend on this.
+// Only Esc/NAV and the right encoder tap dance depend on this.
 #define TAPPING_TERM 200
 
 // Permissive hold for Esc/NAV only (see get_permissive_hold in keymap.c):

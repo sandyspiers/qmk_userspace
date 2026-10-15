@@ -34,7 +34,7 @@ enum tap_dances {
     TD_MEDIA,
 };
 
-// Left encoder press: 1 tap = play/pause, 2 taps = next track
+// Right encoder press: 1 tap = play/pause, 2 taps = next track
 tap_dance_action_t tap_dance_actions[] = {
     [TD_MEDIA] = ACTION_TAP_DANCE_DOUBLE(KC_MPLY, KC_MNXT),
 };
@@ -55,8 +55,8 @@ tap_dance_action_t tap_dance_actions[] = {
 #define OS_MAC  OSL(MACRO)
 
 // Encoder presses
-#define ENC_L   TD(TD_MEDIA)
-#define ENC_R   LAG(KC_K)       // Win+Alt+K: Windows 11 mic mute
+#define ENC_L   LAG(KC_K)       // Win+Alt+K: Windows 11 mic mute
+#define ENC_R   TD(TD_MEDIA)
 
 // Macros
 #define SHOT    LSG(KC_S)       // Win+Shift+S: screenshot an area
@@ -73,7 +73,7 @@ tap_dance_action_t tap_dance_actions[] = {
  *   Row 0 (12): `  1  2  3  4  5                    6  7  8  9  0  -
  *   Row 1 (12): ⇥  Q  W  E  R  T                    Y  U  I  O  P  =
  *   Row 2 (12): ⎋  A  S  D  F  G                    H  J  K  L  ;  '
- *   Row 3 (14): ⌥  Z  X  C  V  B  [encL]  [encR]    N  M  ,  .  /  SYM
+ *   Row 3 (14): ⌃  Z  X  C  V  B  [encL]  [encR]    N  M  ,  .  /  ⌃
  *   Thumbs(10): L out → in (5)                      R in → out (5)
  */
 
@@ -82,29 +82,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │  BASE – QWERTY, no home row mods; one-shot mods on thumbs and corners        │
 // │                                                                              │
-// │  Left thumb : GUI  MACRO*  Ctrl*  Shift*  Space                              │
-// │  Right thumb: Enter  Bspc  Ctrl*  Del  F*                                    │
+// │  Left thumb : GUI  MACRO*  Alt*  Shift*  Space                               │
+// │  Right thumb: Enter  Bspc  SYM*  Del  F*                                     │
+// │  Corners    : Ctrl* on both bottom outer keys                                │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [BASE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
     ESC_NAV, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    OS_ALT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ENC_L,     ENC_R,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OS_SYM,
-                      KC_LGUI, OS_MAC,  OS_CTL,  OS_SFT,  KC_SPC,    KC_ENT,  KC_BSPC, OS_CTL,  KC_DEL,  OS_FN
+    OS_CTL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ENC_L,     ENC_R,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OS_CTL,
+                      KC_LGUI, OS_MAC,  OS_ALT,  OS_SFT,  KC_SPC,    KC_ENT,  KC_BSPC, OS_SYM,  KC_DEL,  OS_FN
 ),
 
 // ┌──────────────────────────────────────────────────────────────────────────────┐
-// │  SYM – mirrored pairs  (tap or hold the right bottom corner)                 │
+// │  SYM – mirrored pairs  (tap or hold right thumb 3)                           │
 // │                                                                              │
 // │  Home row: \ { [ ( <   > ) ] } |   – same bracket per finger on both hands   │
-// │  Top row : shifted number row, one row down                                  │
-// │  Bottom  : _ - = +  (reachable while holding SYM)                            │
+// │  Bottom  : _ - = +                                                           │
+// │  Shifted digits live on Shift + number row only.                             │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [SYM] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_TILD, KC_GRV,  XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, KC_BSLS, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,                     KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_PIPE, XXXXXXX,
-    XXXXXXX, XXXXXXX, KC_UNDS, KC_MINS, KC_EQL,  KC_PLUS, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+    XXXXXXX, XXXXXXX, KC_UNDS, KC_MINS, KC_EQL,  KC_PLUS, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
 ),
 
@@ -113,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │                                                                              │
 // │  Top : Home PgDn PgUp End                                                    │
 // │  Home: ←    ↓    ↑    →                                                      │
-// │  Mods come from the thumbs (Shift* selects, Ctrl* jumps words).              │
+// │  Shift* (thumb) selects, Ctrl* (corner) jumps words.                         │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [NAV] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -155,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // ============================================================
 // Encoders – same on every layer
-// Left: volume down / up.  Right: scroll up / down.
+// Left: scroll up / down.  Right: volume down / up.
 // ============================================================
-#define ENC_ALL { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(MS_WHLU, MS_WHLD) }
+#define ENC_ALL { ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) }
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [BASE] = ENC_ALL,
