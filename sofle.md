@@ -1,21 +1,26 @@
 # Sofle v2.1 · oneshot
 
 `*` one-shot: tap for the next key, hold as a mod/layer. They stack.
-`·` unused. `◉` encoder press. Thumbs are the same on every layer.
+`a/b` tap-hold: tap a, hold b. `·` unused. `◉` encoder press. Thumbs are the same on every layer.
 
 ## BASE
 
 ```
  `    1    2    3    4    5    │    6    7    8    9    0    -
  Tab  q    w    e    r    t    │    y    u    i    o    p    =
- ⎋NAV a    s    d    f    g    │    h    j    k    l    ;    '
- Ctl* z    x    c    v    b   ◉│◉   n    m    ,    .    /    Ctl*
-      GUI  MAC* Alt* Sft* Spc  │    Ent  Bspc SYM* Del  FN*
+ ⎋/NV a    s    d    f    g    │    h    j    k    l    ;    '
+          Alt  Ctl                        Ctl  Alt
+ Ctl* z    x    c    v    b   ◉│◉   n    m    ,    .    /    \
+      GUI  SYM* MAC* Sft* ␣/SY │    Ent  Bspc FN*  Del  ·
 ```
 
-- `⎋NAV` tap Esc, hold NAV (permissive hold; the only tap-hold key)
-- `Alt*` then a letter sends tmux `M-` keys
-- `Ctl*` in both bottom corners: use the one opposite the letter
+- Home row mods: hold `s` Alt, `d` Ctrl, `k` Ctrl, `l` Alt
+- Hold the mod on the hand opposite the letter (Chordal Hold): `k`+`c`
+  is Ctrl+C, `s`+`f` is tmux `M-f`; same-hand rolls stay letters
+- `⎋/NV` tap Esc, hold NAV. `␣/SY` tap Space, hold SYM
+- Typing fast makes tap-holds tap (Flow Tap: 150 ms, 100 ms for Space)
+- `SYM*` one-shot for a single symbol mid-word, no timing involved
+- `Ctl*` one-shot fallback for sequences like tmux `C-a`
 - Symbols on the number row come from `Sft*` + digit
 
 ## SYM · mirrored pairs
@@ -23,24 +28,25 @@
 ```
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
- ·    \    {    [    (    <    │    >    )    ]    }    |    ·
+ ·    ·    {    [    (    <    │    >    )    ]    }    |    ·
  ·    ·    _    -    =    +   ◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
 - Same bracket per finger on both hands
 - Shifted digits are not duplicated here: use `Sft*` + number row
-- SYM is on a thumb, so every key is reachable while holding it
+- Hold Space, or tap `SYM*` for one symbol; `\` is the right corner
 
 ## NAV · column = direction, row = distance
 
 ```
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  ·    ·    ·    ·    ·    ·    │    Home PgDn PgUp End  ·    ·
- NAV  ·    ·    ·    ·    ·    │    ←    ↓    ↑    →    ·    ·
+ NAV  ·    Alt  Ctl  Sft  ·    │    ←    ↓    ↑    →    ·    ·
  ·    ·    ·    ·    ·    ·   ◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
-- `Sft*` then arrow selects, `Ctl*` then arrow jumps a word
+- Left home row is plain Alt / Ctrl / Shift while holding NAV:
+  `f` + arrow selects, `d` + arrow jumps a word, both for word select
 
 ## FN · F-keys and floating tools
 
@@ -90,4 +96,4 @@ qmk compile -kb sofle/rev1 -km oneshot
 
 Keymap: `keyboards/sofle/rev1/keymaps/oneshot/` · ProMicro RP2040
 (`rp2040_ce`) · no OLED, no RGB · `TAPPING_TERM 200` ·
-`ONESHOT_TIMEOUT 3000`
+`FLOW_TAP_TERM 150` · Permissive + Chordal Hold · `ONESHOT_TIMEOUT 3000`

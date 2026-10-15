@@ -43,11 +43,17 @@ tap_dance_action_t tap_dance_actions[] = {
 // Key Aliases
 // ============================================================
 
-// The only tap-hold key on the board: tap = Esc, hold = NAV
+// Tap-hold layers: tap = Esc / Space, hold = NAV / SYM
 #define ESC_NAV LT(NAV, KC_ESC)
+#define SPC_SYM LT(SYM, KC_SPC)
+
+// Home row mods: Alt on ring, Ctrl on middle, mirrored on both hands
+#define HM_S    LALT_T(KC_S)
+#define HM_D    LCTL_T(KC_D)
+#define HM_K    LCTL_T(KC_K)
+#define HM_L    LALT_T(KC_L)
 
 // One-shot mods and layers: tap for the next key, hold for several
-#define OS_ALT  OSM(MOD_LALT)
 #define OS_CTL  OSM(MOD_LCTL)
 #define OS_SFT  OSM(MOD_LSFT)
 #define OS_SYM  OSL(SYM)
@@ -73,38 +79,39 @@ tap_dance_action_t tap_dance_actions[] = {
  *   Row 0 (12): `  1  2  3  4  5                    6  7  8  9  0  -
  *   Row 1 (12): ⇥  Q  W  E  R  T                    Y  U  I  O  P  =
  *   Row 2 (12): ⎋  A  S  D  F  G                    H  J  K  L  ;  '
- *   Row 3 (14): ⌃  Z  X  C  V  B  [encL]  [encR]    N  M  ,  .  /  ⌃
+ *   Row 3 (14): ⌃  Z  X  C  V  B  [encL]  [encR]    N  M  ,  .  /  \
  *   Thumbs(10): L out → in (5)                      R in → out (5)
  */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // ┌──────────────────────────────────────────────────────────────────────────────┐
-// │  BASE – QWERTY, no home row mods; one-shot mods on thumbs and corners        │
+// │  BASE – QWERTY; Ctrl / Alt as home row mods, Shift and layers on thumbs      │
 // │                                                                              │
-// │  Left thumb : GUI  MACRO*  Alt*  Shift*  Space                               │
-// │  Right thumb: Enter  Bspc  SYM*  Del  F*                                     │
-// │  Corners    : Ctrl* on both bottom outer keys                                │
+// │  Home row   : s Alt  d Ctrl  │  k Ctrl  l Alt   (use the opposite hand)       │
+// │  Left thumb : GUI  SYM*  MACRO*  Shift*  Space/SYM                           │
+// │  Right thumb: Enter  Bspc  FN*  Del  –                                       │
+// │  Corners    : Ctrl* fallback (left), \ (right)                               │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [BASE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
-    ESC_NAV, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    OS_CTL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ENC_L,     ENC_R,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OS_CTL,
-                      KC_LGUI, OS_MAC,  OS_ALT,  OS_SFT,  KC_SPC,    KC_ENT,  KC_BSPC, OS_SYM,  KC_DEL,  OS_FN
+    ESC_NAV, KC_A,    HM_S,    HM_D,    KC_F,    KC_G,                        KC_H,    KC_J,    HM_K,    HM_L,    KC_SCLN, KC_QUOT,
+    OS_CTL,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ENC_L,     ENC_R,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
+                      KC_LGUI, OS_SYM,  OS_MAC,  OS_SFT,  SPC_SYM,   KC_ENT,  KC_BSPC, OS_FN,   KC_DEL,  XXXXXXX
 ),
 
 // ┌──────────────────────────────────────────────────────────────────────────────┐
-// │  SYM – mirrored pairs  (tap or hold right thumb 3)                           │
+// │  SYM – mirrored pairs  (hold Space, or tap left thumb 2 for one symbol)      │
 // │                                                                              │
-// │  Home row: \ { [ ( <   > ) ] } |   – same bracket per finger on both hands   │
+// │  Home row: { [ ( <   > ) ] } |   – same bracket per finger on both hands     │
 // │  Bottom  : _ - = +                                                           │
 // │  Shifted digits live on Shift + number row only.                             │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [SYM] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, KC_BSLS, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,                     KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_PIPE, XXXXXXX,
+    XXXXXXX, XXXXXXX, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,                     KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_PIPE, XXXXXXX,
     XXXXXXX, XXXXXXX, KC_UNDS, KC_MINS, KC_EQL,  KC_PLUS, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
 ),
@@ -114,12 +121,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │                                                                              │
 // │  Top : Home PgDn PgUp End                                                    │
 // │  Home: ←    ↓    ↑    →                                                      │
-// │  Shift* (thumb) selects, Ctrl* (corner) jumps words.                         │
+// │  Left home row holds plain Alt / Ctrl / Shift: select, jump words.           │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [NAV] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+    _______, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
 ),
@@ -172,9 +179,30 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 // Per-key tapping
 // ============================================================
 
-// Permissive hold on Esc/NAV only
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    return keycode == ESC_NAV;
+// Layer keys may be held with either hand: Esc/NAV + left-hand mods,
+// Space/SYM + left-hand symbols. Home row mods keep the opposite-hand rule.
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t *other_record) {
+    switch (tap_hold_keycode) {
+        case ESC_NAV:
+        case SPC_SYM:
+            return true;
+    }
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+
+// Typing fast makes tap-holds tap. Space/SYM gets a shorter window so a
+// deliberate symbol right after a word still works.
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    if (!is_flow_tap_key(keycode) || !is_flow_tap_key(prev_keycode)) {
+        return 0;
+    }
+    return keycode == SPC_SYM ? 100 : FLOW_TAP_TERM;
+}
+
+// No tap-then-hold repeat on Space, so "if (" is Space, then SYM.
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    return keycode == SPC_SYM ? 0 : QUICK_TAP_TERM;
 }
 
 // ============================================================
