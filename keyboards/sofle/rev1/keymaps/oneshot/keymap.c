@@ -66,6 +66,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 // Macros
 #define SHOT    LSG(KC_S)       // Win+Shift+S: screenshot an area
+#define ALT_TAB A(KC_TAB)       // Alt+Tab: jump to the previous window
 #define WT_COPY C(S(KC_C))      // Windows Terminal copy
 #define WT_PSTE C(S(KC_V))      // Windows Terminal paste
 
@@ -150,10 +151,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // │  MACRO – each macro on its mnemonic key  (tap or hold left thumb 2)          │
 // │                                                                              │
 // │  Caps pos = Caps Word   S = screenshot   C / V = Windows Terminal copy/paste │
+// │  Tab = Alt+Tab to the previous window                                        │
 // └──────────────────────────────────────────────────────────────────────────────┘
 [MACRO] = LAYOUT(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    ALT_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     CW_TOGG, XXXXXXX, SHOT,    XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, WT_COPY, WT_PSTE, XXXXXXX, _______,   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______

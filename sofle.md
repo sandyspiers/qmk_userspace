@@ -64,13 +64,14 @@
 
 ```
  ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
- ·    ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
+ A-Tb ·    ·    ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  CapW ·    Shot ·    ·    ·    │    ·    ·    ·    ·    ·    ·
  ·    ·    ·    Copy Pste ·   ◉│◉   ·    ·    ·    ·    ·    ·
 ```
 
 | Key  | Does                   | Sends         |
 |------|------------------------|---------------|
+| A-Tb | Previous window        | `Alt+Tab`     |
 | CapW | Caps Word              | `CW_TOGG`     |
 | Shot | Screenshot an area     | `Win+Shift+S` |
 | Copy | Windows Terminal copy  | `C-S-c`       |
